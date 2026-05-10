@@ -8,7 +8,7 @@ A single-cycle RISC-V RV32I core implemented in SystemVerilog,
 
 - PC register - contains the address if the instruction to execute.
   
--Instruction Memory: (data array of code)
+- Instruction Memory: (data array of code)
 inputs: pc 
 outputs : Instruction to exectue.
 
