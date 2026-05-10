@@ -1,15 +1,16 @@
 # RV32I_SC
 
+
 A single-cycle RISC-V RV32I core implemented in SystemVerilog,
 -based on the Digital Design and Computer Architecture implementation by Harris&Harris
 
 
-## Operational Documention
-
+## Datapath documentation
+<img src="docs/architecture.png" alt="Logo" >
 - PC register - contains the address if the instruction to execute.
 
 - Instruction Memory: (data array of code)
-inputs: pc 
+  - inputs: PC 
 outputs : Instruction to exectue.
 
 - Register file: (data aray of registers)
