@@ -2,3 +2,9 @@
 
 A single-cycle RISC-V RV32I core implemented in SystemVerilog,
 -based on the Digital Design and Computer Architecture implementation by Harris&Harris
+
+
+# Datapath
+-registerFile
+-dataMem
+-instructionMem
