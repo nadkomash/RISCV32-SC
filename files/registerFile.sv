@@ -3,14 +3,9 @@ Register file module for a simple CPU design.
 This module contains 32 registers, each 32 bits wide. 
 It supports reading from two source registers and writing to a destination register on the rising edge of the clock.
  The register at index 0 is hardwired to zero and cannot be modified.
-
-the implemention is based on Table 6.1 DDCA
+ 
 
 */
-
-
-
-
 module registerFile (
     input clk,
     input logic we3,             // Write enable
