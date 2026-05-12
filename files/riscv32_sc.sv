@@ -5,7 +5,7 @@
     output logic [31:0] PC,
     output logic MemWrite,
     output logic [31:0] ALUResult, WriteData,
-    output logic [2:0] MemSize
+    output logic [2:0] Size
 );
 
     logic ALUSrcB,ALUSrcA, RegWrite, Jump, Zero, NEG, NEGU;
@@ -21,6 +21,6 @@
     datapath dp(.clk(clk), .rst_n(rst_n), .ResultSrc(ResultSrc), .PCSrc(PCSrc), .ALUSrcB(ALUSrcB),
                 .RegWrite(RegWrite), .ImmSrc(ImmSrc), .ALUSrcA(ALUSrcA),
                 .ALUControl(ALUControl), .Zero(Zero), .PC(PC), .instr(instr), .ALUResult(ALUResult),
-                .WriteData(WriteData), .ReadData(ReadData), .MemSize(MemSize), .NEG(NEG), .NEGU(NEGU));
+                .WriteData(WriteData), .ReadData(ReadData), .Size(Size), .NEG(NEG), .NEGU(NEGU));
 
 endmodule

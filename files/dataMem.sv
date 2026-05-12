@@ -1,16 +1,33 @@
+
+/*
+
+
+
+ALUResult[31:2] = 00 -> word address
+
+
+*/
+
+
 module dataMemory(
     input  logic        clk, we,
-    input  logic [31:0] a, wd,
-    input  logic [2:0]  MemSize,   // 000=SB, 001=SH, 010=SW
+    input  logic [31:0] a,     //aluresult [31:0]
+    input  logic [31:0] wd,    // wd is always rs2_data
+    input  logic [2:0]  Size,   // 000=SB, 001=SH, 010=SW (by funct3)
     output logic [31:0] rd
 );
+
+    //Data Memory initialization
     logic [31:0] dmem [0:63];
 
 
 
     always_ff @(posedge clk) begin
+
+
+        //Store Opertations - handle sb/sh/sw
         if (we) begin
-            case (MemSize)
+            case (Size)
                 3'b010: begin // SW = Store word
                     dmem[a[31:2]] <= wd;
                 end
@@ -28,6 +45,7 @@ module dataMemory(
                         2'b11: dmem[a[31:2]][31:24] <= wd[7:0];
                     endcase
                 end
+            
             endcase
         end
     end
