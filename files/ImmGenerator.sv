@@ -14,12 +14,14 @@ module ImmGenerator(
     output logic [31:0] ImmGen
 
 );
+    // Extract immediate fields based on instruction type
     wire [11:0] immI = in[31:20];
     wire [11:0] immS = {in[31:25], in[11:7]};
     wire [12:0] immB = {in[31], in[7], in[30:25], in[11:8], 1'b0};
     wire [20:0] immJ = {in[31], in[19:12], in[20], in[30:21], 1'b0};
     wire [19:0] immU = {in[31:12]};
 
+    // Sign extension and output selection based on ImmSrc
     assign ImmGen =
         (ImmSrc == 3'b000) ? {{20{immI[11]}}, immI} :
         (ImmSrc == 3'b001) ? {{20{immS[11]}}, immS} :
