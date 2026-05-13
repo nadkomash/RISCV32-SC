@@ -1,12 +1,3 @@
-
-/*
-
-Alu decoder.
-
-
-*/
-
-
 module alu_decoder(
     input logic [1:0] ALUOp,
     input logic [2:0] funct3,
@@ -19,9 +10,7 @@ module alu_decoder(
     assign funct2 = {op5, funct7_5};
 
 
-
     always_comb begin
-
         //00 : simple add  cases for load/store
         if(ALUOp == 2'b00)
             ALUControl = 4'b0000;
@@ -34,10 +23,9 @@ module alu_decoder(
         else begin
             case(funct3)
                 3'b000: begin
-                            if(funct2 == 2'b00 || funct2 == 2'b01 || funct2 == 2'b10)
-                                ALUControl = 4'b0000;   //add
-                            else if (funct2 == 2'b11)
-                                ALUControl = 4'b0001;   //sub
+                            if(funct2 == 2'b11)
+                                ALUControl = 4'b0001; 
+                            else    ALUControl = 4'b0000;   //add           
                         end
                 3'b001:
                             ALUControl = 4'b0010; //slli ,sll
