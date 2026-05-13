@@ -10,9 +10,13 @@ zero : 1-bit flag that is set to 1 if the result is zero, otherwise 0
 */
 
 module alu (
+    
+    //inputs
     input logic [31:0] a, 
     input logic [31:0] b,
     input logic [3:0] ALUControl,
+
+    //outputs
     output logic [31:0] y,
     output logic Zero,
     output logic Neg,
@@ -64,25 +68,9 @@ module alu (
             4'b0101: y = $unsigned(a) >> shamt;                 // srli, srl            
             4'b1101: y = $signed(a) >>> shamt;                  // srai, sra
             4'b0110: y = a | b;                                 // ori, or
-            4'b0111: y = a & b;                                 // andi, and    
+            4'b0111: y = a & b;                                 // andi, and   
 
-
-
-
-            /*
-            4'b0101: y = ($signed(a) < $signed(b)) ? 32'b1 : 32'b0; // SLT
-            4'b1001: y = {31'b0, NEGU};                         // SLTU  << add this
-            4'b0011: y = a | b;                                 // OR
-            4'b0010: y = a & b;                                 // AND
-            4'b0100: y = a ^ b;                                 // XOR
-            4'b0110: y = a << shamt;                            // SLL
-            4'b0111: y = $unsigned(a) >> shamt;                 // SRL
-            4'b1000: y = $signed(a) >>> shamt;                  // SRA
-            default: y = 32'bx;
-            */
-
-
-
+            default: y = 32'bxxxx_xxxx_xxxx_xxxx_xxxx_xxxx_xxxx_xxxx; // undefined
         endcase
     end
 
