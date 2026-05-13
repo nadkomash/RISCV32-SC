@@ -1,13 +1,6 @@
-
 /*
-
-
-
 ALUResult[31:2] = 00 -> word address
-
-
 */
-
 
 module dataMemory(
     input  logic        clk, we,
