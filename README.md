@@ -6,7 +6,7 @@ A single-cycle RISC-V RV32I core implemented in SystemVerilog,
 
 
 ## Datapath documentation
-<img src="datapath.png" alt="Logo" >
+<img src="docs/datapath.png" alt="Logo" >
 
 
 
