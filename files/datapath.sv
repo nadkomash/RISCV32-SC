@@ -19,8 +19,8 @@ module datapath(
     logic [31:0] SrcA, SrcB, immGen, PCplusImm, PCplus4, PCNext, Result, dataGen, RD1;
     wire [31:0] Jalr_pc = {ALUResult[31:1], 1'b0};
 
-    adder PCplus4 (.a(PC), .b(32'b100), .y(PCplus4));
-    adder PCplusImm (.a(PC), .b(immGen), .y(PCplusImm));
+    adder PCplus4Adder (.a(PC), .b(32'b100), .y(PCplus4));
+    adder PCplusImmAdder (.a(PC), .b(immGen), .y(PCplusImm));
 
     ImmGenerator ig (.in(instr[31:7]), .ImmSrc(ImmSrc), .ImmGen(immGen));
 
