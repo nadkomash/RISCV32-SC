@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_top;
+module tb_alu;
     // Signals
     logic clk;
     logic [31:0] a, b;
@@ -33,7 +33,7 @@ module tb_top;
     // 4. Monitor & Scoreboard Logic (Check results)
     always @(posedge clk) begin
         #1; // Wait for combinational logic to settle
-        $display("Time:%0t | OP:%b | A:%h B:%h | Y:%h Zero:%b", 
+        $display("Time:%0t | OP:%h | A:%h B:%h | Y:%h Zero:%b", 
                  $time, ALUControl, a, b, y, Zero);
         
         // Simple Scoreboard Check for ADD
@@ -44,10 +44,11 @@ module tb_top;
     // 5. Generator (The main test sequence)
     initial begin
         // Initialize VCD dumping
-        $dumpfile("sim/alu_trace.vcd");
-        $dumpvars(0, tb_top);
+        $dumpfile("tb_sim/alu_trace.vcd");
+        $dumpvars(0, tb_alu);
 
         // Initialize signals
+        
         clk = 0;
         a = 0; b = 0; ALUControl = 0;
 
@@ -62,13 +63,15 @@ module tb_top;
         // Test SUB
         drive(32'd20, 32'd8, 4'b0001);
 
+
         // Test Random cases (Icarus supports $urandom)
         repeat(5) begin
-            drive($urandom, $urandom, 4'b0000); // Test 5 random ADDs
+            drive($urandom, $urandom, 4'b0001); // Test 5 random SUBs
         end
 
         #20;
         $display("--- Tests Finished ---");
+       
         $finish;
     end
 

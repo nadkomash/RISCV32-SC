@@ -13,11 +13,7 @@ module dataMemory(
     //Data Memory initialization
     logic [31:0] dmem [0:63];
 
-
-
     always_ff @(posedge clk) begin
-
-
         //Store Opertations - handle sb/sh/sw
         if (we) begin
             case (Size)

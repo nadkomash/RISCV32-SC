@@ -5,6 +5,8 @@ module alu_decoder(
     input logic funct7_5,
     output logic [3:0] ALUControl
 );
+  
+  
     //Create funct2 based on op5 and funct7_5 for easier case statement.
     logic [1:0] funct2;
     assign funct2 = {op5, funct7_5};

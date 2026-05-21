@@ -6,9 +6,7 @@ base on alu decoder truth table from documentation.
 outputs:
 result : 32-bit result of the ALU operation
 zero : 1-bit flag that is set to 1 if the result is zero, otherwise 0
-
 */
-
 module alu (
     
     //inputs
@@ -22,9 +20,6 @@ module alu (
     output logic Neg,
     output logic NegU
 );
-
-
-
     //if ALUControl[0] is 1, we want to perform subtraction, which is equivalent to adding the
     // two's complement of b (i.e., ~b + 1)
     // if ALUControl[0] is 0, we want to perform addition, which is just a + b
