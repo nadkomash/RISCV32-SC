@@ -27,6 +27,7 @@ module controller(
 
     mainDecoder md (.opcode(opcode), .RegWrite(RegWrite), .ImmSrc(ImmSrc), .ALUSrcA(ALUSrcA), .ALUSrcB(ALUSrcB), 
      .MemWrite(MemWrite), .ResultSrc(ResultSrc),  .Branch(Branch),.ALUOp(ALUOp), .Jump(Jump), .Jalr(Jalr));
+//added
 
     aluDecoder ad (.ALUOp(ALUOp), .funct3(funct3), .op5(opcode[5]), .funct7_5(funct7_5),
      .ALUControl(ALUControl));
