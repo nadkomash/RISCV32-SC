@@ -41,6 +41,7 @@ module datapath(
     mux3to1 mux_PCNext (.a(PCplus4), .b(PCplusImmGen), .c(Jalr_pc), .s(PCSrc), .y(PCNext));
 
     alu alu (.a(SrcA), .b(SrcB), .ALUControl(ALUControl), .y(ALUResult), .Zero(Zero), .Neg(Neg), .NegU(NegU));
+    
     LoadGenerator lg (.ReadData(ReadData), .offset(ALUResult[1:0]), .Size(Size), .DataGen(dataGen));
 
     assign WriteData = ReadData2; // for store instructions, the data to write is from the register file.

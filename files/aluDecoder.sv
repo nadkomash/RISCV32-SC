@@ -20,6 +20,7 @@ module alu_decoder(
         //01 : branch case
         else if (ALUOp == 2'b01)
             ALUControl = 4'b0001;
+            
 
         // 10 :  R-type and I-type cases - need to look at funct3 and funct2
         else begin
