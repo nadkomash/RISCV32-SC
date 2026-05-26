@@ -17,7 +17,7 @@
     controlpath cp(.opcode(instr[6:0]), .funct3(instr[14:12]), .funct7_5(instr[30]), 
                    .Zero(Zero), .Neg(Neg), .NegU(NegU),
                    .RegWrite(RegWrite),  .ALUSrcB(ALUSrcB), .ALUSrcA(ALUSrcA),.MemWrite(MemWrite),
-                   .ImmSrc(ImmSrc),.ResultSrc(ResultSrc), .PCSrc(PCSrc),.ALUControl(ALUControl), .Size(Size),);
+                   .ImmSrc(ImmSrc),.ResultSrc(ResultSrc), .PCSrc(PCSrc),.ALUControl(ALUControl), .Size(Size));
                   
 
 
@@ -26,6 +26,6 @@
                 .ImmSrc(ImmSrc), .ResultSrc(ResultSrc), .PCSrc(PCSrc), .ReadData(ReadData),
                 .ALUControl(ALUControl),.Size(Size),
                 .PC(PC), .Zero(Zero),.Neg(Neg), .NegU(NegU),.ALUResult(ALUResult),
-                .WriteData(WriteData),);
+                .WriteData(WriteData));
 
 endmodule

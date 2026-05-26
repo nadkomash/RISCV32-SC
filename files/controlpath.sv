@@ -1,4 +1,4 @@
-module controller(
+module controlpath(
     //inputs from instruction fields
     input logic [6:0] opcode,
     input logic [2:0] funct3,
@@ -25,11 +25,11 @@ module controller(
     logic btFlag;
 
 
-    mainDecoder md (.opcode(opcode), .RegWrite(RegWrite), .ImmSrc(ImmSrc), .ALUSrcA(ALUSrcA), .ALUSrcB(ALUSrcB), 
+    main_decoder md (.opcode(opcode), .RegWrite(RegWrite), .ImmSrc(ImmSrc), .ALUSrcA(ALUSrcA), .ALUSrcB(ALUSrcB), 
      .MemWrite(MemWrite), .ResultSrc(ResultSrc),  .Branch(Branch),.ALUOp(ALUOp), .Jump(Jump), .Jalr(Jalr));
 //added
 
-    aluDecoder ad (.ALUOp(ALUOp), .funct3(funct3), .op5(opcode[5]), .funct7_5(funct7_5),
+    alu_decoder ad (.ALUOp(ALUOp), .funct3(funct3), .op5(opcode[5]), .funct7_5(funct7_5),
      .ALUControl(ALUControl));
 
     branchLogic bl (.funct3(funct3), .Zero(Zero), .Neg(Neg), .NegU(NegU), .btFlag(btFlag));

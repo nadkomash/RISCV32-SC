@@ -4,11 +4,11 @@
 */
 
 module  mux2to1 (
-    input logic [31:0] in0, in1,
-    input logic sel,
-    output logic [31:0] out
+    input logic [31:0] a, b,
+    input logic s,
+    output logic [31:0] y
 );
 
-    assign out = sel ? in1 : in0;   
+    assign y = s ? a : b;   
 
 endmodule

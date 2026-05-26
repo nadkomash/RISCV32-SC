@@ -2,7 +2,7 @@
 
 main decoder based on Truth table from documentation.
 */
-module mainDecoder(
+module main_decoder(
     input logic [6:0] opcode,
     output logic RegWrite,ALUSrcA,ALUSrcB,MemWrite,Branch,Jump,Jalr,
     output logic [2:0] ImmSrc,

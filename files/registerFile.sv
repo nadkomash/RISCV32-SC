@@ -10,7 +10,7 @@ module registerFile (
     input clk,
     input logic we3,             // Write enable
     input logic [4:0] a1,a2,    // Read  adresss
-     input logic [4:0] a3,      // Write address
+    input logic [4:0] a3,      // Write address
     input logic [31:0] wd3,     // Write data
     output logic [31:0] rd1,rd2   // Read data
 

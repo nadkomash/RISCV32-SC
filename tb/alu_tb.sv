@@ -67,7 +67,7 @@ module alu_tb;
         a = 0; b = 0; ALUControl = 0;
 
         #10;
-        $display("------- Starting 100%% Coverage Tests --------");
+        $display("------- Starting End Cases Tests --------");
 
         // ==========================================
         // 1. ADD (4'b0000) Edge Cases

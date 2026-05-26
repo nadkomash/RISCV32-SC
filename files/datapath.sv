@@ -30,7 +30,7 @@ module datapath(
 
     ImmGenerator ig (.in(instr[31:7]), .ImmSrc(ImmSrc), .ImmGen(immGen));
 
-    registerFile rf (.clk(clk), .RegWrite(RegWrite), .a1(instr[19:15]), .a2(instr[24:20]), .a3(instr[11:7]), .wd3(Result), .rd1(ReadData1), .rd2(ReadData2));
+    registerFile rf (.clk(clk), .we3(RegWrite), .a1(instr[19:15]), .a2(instr[24:20]), .a3(instr[11:7]), .wd3(Result), .rd1(ReadData1), .rd2(ReadData2));
 
     ff_r PC_Next_Reg (.clk(clk), .rst_n(rst_n), .d(PCNext), .q(PC));
 
@@ -42,7 +42,7 @@ module datapath(
 
     alu alu (.a(SrcA), .b(SrcB), .ALUControl(ALUControl), .y(ALUResult), .Zero(Zero), .Neg(Neg), .NegU(NegU));
     
-    LoadGenerator lg (.ReadData(ReadData), .offset(ALUResult[1:0]), .Size(Size), .DataGen(dataGen));
+    loadGenerator lg (.ReadData(ReadData), .offset(ALUResult[1:0]), .Size(Size), .DataGen(dataGen));
 
     assign WriteData = ReadData2; // for store instructions, the data to write is from the register file.
 

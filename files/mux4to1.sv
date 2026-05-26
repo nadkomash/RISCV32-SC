@@ -1,4 +1,4 @@
-module mux4_1(
+module mux4to1(
     input [31:0] a,
     input [31:0] b,
     input [31:0] c,

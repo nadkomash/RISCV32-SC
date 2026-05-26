@@ -1,4 +1,4 @@
-module mux3_1(
+module mux3to1(
     input [31:0] a,
     input [31:0] b,
     input [31:0] c,
