@@ -18,6 +18,7 @@ module alu (
     output logic [31:0] y,
     output logic Zero,
     output logic Neg,
+
     output logic NegU
 );
     //if ALUControl[0] is 1, we want to perform subtraction, which is equivalent to adding the
