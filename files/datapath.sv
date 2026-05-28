@@ -25,6 +25,10 @@ module datapath(
     logic [31:0] SrcA, SrcB, immGen, PCplusImmGen, PCplus4, PCNext, Result, dataGen, ReadData1, ReadData2;
     wire [31:0] Jalr_pc = {ALUResult[31:1], 1'b0};
 
+    // initial begin
+    //     $strobe("inside datapath: instr=%h, RegWrite=%b, ALUSrcA=%b, ALUSrcB=%b, ImmSrc=%b, ResultSrc=%b, PCSrc=%b, ALUControl=%b, Size=%b", 
+    //             instr, RegWrite, ALUSrcA, ALUSrcB, ImmSrc, ResultSrc, PCSrc, ALUControl, Size);
+    // end
     adder PCplus4Adder (.a(PC), .b(32'b100), .y(PCplus4));
     adder PCplusImmAdder (.a(PC), .b(immGen), .y(PCplusImmGen));
 
@@ -37,6 +41,8 @@ module datapath(
     mux2to1 mux_SrcA (.a(ReadData1), .b(PC), .s(ALUSrcA), .y(SrcA));
     mux2to1 mux_SrcB (.a(ReadData2), .b(immGen), .s(ALUSrcB), .y(SrcB));
 
+    //initial $strobe("inside datapath: SrcA=%h, SrcB=%h, immGen=%h, PCplusImmGen=%h, PCplus4=%h, PCNext=%h, Result=%h", SrcA, SrcB, immGen, PCplusImmGen, PCplus4, PCNext, Result);
+
     mux4to1 mux_Result (.a(ALUResult), .b(dataGen), .c(PCplus4), .d(immGen), .s(ResultSrc), .y(Result));
     mux3to1 mux_PCNext (.a(PCplus4), .b(PCplusImmGen), .c(Jalr_pc), .s(PCSrc), .y(PCNext));
 
@@ -45,5 +51,6 @@ module datapath(
     loadGenerator lg (.ReadData(ReadData), .offset(ALUResult[1:0]), .Size(Size), .DataGen(dataGen));
 
     assign WriteData = ReadData2; // for store instructions, the data to write is from the register file.
+
 
 endmodule

@@ -8,11 +8,11 @@ module instructionMem (
     logic [31:0] imem [63:0];
 
     // Initialize instruction memory with some instructions (for testing)
-    // initial 
-    //     $readmemh("mem_sum.txt",imem);
+     initial $readmemh("hex/mem_init.txt",imem , 0, 63); // Load instructions from a hex file
+        
 
     // Read instruction from memory (combinational)
-    assign instr = imem[a[9:2]]; // Use bits [9:2] to index the word address
+    assign instr = imem[a[31:2]]; // Use bits [9:2] to index the word address
 
 
 endmodule

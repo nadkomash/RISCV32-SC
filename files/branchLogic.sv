@@ -13,10 +13,17 @@ always_comb begin
         3'b001:  btFlag = ~Zero ;   // bne
         3'b100:  btFlag = Neg  ;    // blt
         3'b101:  btFlag = ~Neg  ;   // bge
-        3'b110:  btFlag = NegU  ;   // bltu
+        3'b110:  btFlag = NegU  ;   // bltuS
         3'b111:  btFlag = ~NegU ;   // bgeu
         default:
-         btFlag = 1'bx;
+         btFlag = 1'b0;
     endcase
+end
+
+always @(funct3, Zero, Neg, NegU) begin
+    if ($time >= 80 && $time <= 100) begin
+        $display("[%0t] BRANCH_DEBUG: funct3=%b, Zero=%b, Neg=%b -> btFlag=%b", 
+                 $time, funct3, Zero, Neg, btFlag);
+    end
 end
 endmodule

@@ -29,6 +29,8 @@ module ImmGenerator(
         (ImmSrc == 3'b011) ? {{11{immJ[20]}}, immJ} :
                              {immU, 12'b0};
 
+    
+    //initial $strobe("inside ImmGenerator: in=%h, ImmSrc=%b, ImmGen=%h" , in, ImmSrc, ImmGen);
 
 
 endmodule

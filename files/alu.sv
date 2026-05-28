@@ -81,6 +81,10 @@ module alu (
             default: y = 32'bxxxx_xxxx_xxxx_xxxx_xxxx_xxxx_xxxx_xxxx; // undefined
         endcase
     end
+
+    initial begin
+        $monitor("inside ALU: a=%h, b=%h, ALUControl=%b, y=%h, Zero=%b, Neg=%b, NegU=%b", a, b, ALUControl, y, Zero, Neg, NegU);
+    end
 endmodule
 
 

@@ -9,6 +9,6 @@ module  mux2to1 (
     output logic [31:0] y
 );
 
-    assign y = s ? a : b;   
+    assign y = s ? b : a;   
 
 endmodule

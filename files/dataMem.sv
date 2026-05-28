@@ -41,4 +41,6 @@ module dataMemory(
 
     assign rd = dmem[a[31:2]]; // word-aligned read
 
+    //initial $strobe("inside dataMemory: a=%h, wd=%h, Size=%b", a, wd, Size);
+
 endmodule

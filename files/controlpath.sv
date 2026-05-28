@@ -25,6 +25,7 @@ module controlpath(
     logic btFlag;
 
 
+
     main_decoder md (.opcode(opcode), .RegWrite(RegWrite), .ImmSrc(ImmSrc), .ALUSrcA(ALUSrcA), .ALUSrcB(ALUSrcB), 
      .MemWrite(MemWrite), .ResultSrc(ResultSrc),  .Branch(Branch),.ALUOp(ALUOp), .Jump(Jump), .Jalr(Jalr));
 //added
@@ -39,5 +40,8 @@ module controlpath(
                     2'b00;
 
     assign Size = funct3;
+
+
+
 
 endmodule
