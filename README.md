@@ -1,9 +1,4 @@
-# RV32I_SC
-
-A single-cycle RISC-V RV32I core implemented in SystemVerilog,
--based on the Digital Design and Computer Architecture implementation by Harris&Harris.
-This architecture extended to support all missing instructions from the inital desgin .
-achieving 100% instruction coverage.
+## RV32I_SC
 ------------------------------------------------------------------------
 
 ## Overview
