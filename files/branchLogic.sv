@@ -20,10 +20,10 @@ always_comb begin
     endcase
 end
 
-always @(funct3, Zero, Neg, NegU) begin
-    if ($time >= 80 && $time <= 100) begin
-        $display("[%0t] BRANCH_DEBUG: funct3=%b, Zero=%b, Neg=%b -> btFlag=%b", 
-                 $time, funct3, Zero, Neg, btFlag);
-    end
-end
+// always @(funct3, Zero, Neg, NegU) begin
+//     if ($time >= 80 && $time <= 100) begin
+//         $display("[%0t] BRANCH_DEBUG: funct3=%b, Zero=%b, Neg=%b -> btFlag=%b", 
+//                  $time, funct3, Zero, Neg, btFlag);
+//     end
+// end
 endmodule

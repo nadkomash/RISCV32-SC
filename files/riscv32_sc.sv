@@ -28,11 +28,11 @@
                 .PC(PC), .Zero(Zero),.Neg(Neg), .NegU(NegU),.ALUResult(ALUResult),
                 .WriteData(WriteData));
 
-    always @(posedge clk) begin
-        if ($time >= 80 && $time <= 110) begin
-            $display("[%0t] TOP_DELAY_CHECK: PC=0x%h, Instr=0x%h, Control_funct3=%b", 
-                 $time, PC, instr, instr[14:12]);
-    end
-end
+//     always @(posedge clk) begin
+//         if ($time >= 80 && $time <= 110) begin
+//             $display("[%0t] TOP_DELAY_CHECK: PC=0x%h, Instr=0x%h, Control_funct3=%b", 
+//                  $time, PC, instr, instr[14:12]);
+//     end
+// end
         
 endmodule

@@ -11,18 +11,28 @@ module top_tb();
             .DataAdr(DataAdr),
             .MemWrite(MemWrite)
      );  
-
+     task automatic initialize_memories();
+        integer i;
+        for (i = 0; i < 31; i = i + 1) begin
+            dut.rvsingle.dp.rf.rf[i] = 32'b0;
+        end
+     endtask
+     
     // initialize test
     initial begin
+        initialize_memories();
         //ACTIVE LOW
         reset <= 0;
         #22;
         reset <= 1;
     end
 
-initial $monitor("[%0t] a1=0x%08x, rs1=0x%08x, a2=0x%08x, rs2=0x%08x, a3=0x%08x, wd=0x%08x",
+    initial begin
+         $monitor("[%0t] a1=0x%08x, rs1=0x%08x, a2=0x%08x, rs2=0x%08x, a3=0x%08x, wd=0x%08x",
                     $time, dut.rvsingle.dp.rf.a1,dut.rvsingle.dp.rf.rd1, dut.rvsingle.dp.rf.a2, 
                     dut.rvsingle.dp.rf.rd2, dut.rvsingle.dp.rf.a3, dut.rvsingle.dp.rf.wd3);
+    
+    end
 
     always begin
         clk <= 1;
@@ -34,8 +44,6 @@ initial $monitor("[%0t] a1=0x%08x, rs1=0x%08x, a2=0x%08x, rs2=0x%08x, a3=0x%08x,
     initial begin
         $dumpfile("tb_sim/top_tb.vcd");
         $dumpvars(0, top_tb);
-        $dumpfile("tb_sim/top_rf_tb.vcd");
-        $dumpvars(0, top_tb.dut.rvsingle.dp.rf);
     end 
 
 
